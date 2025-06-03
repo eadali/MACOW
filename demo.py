@@ -6,11 +6,11 @@ from pipeline import build_pipeline
 from util import cfg, load_config, load_onnx_model
 import supervision as sv
 
-WINDOW_NAME = "Aerial Detections"
+WINDOW_NAME = "Maritime Detections"
 
 
 def get_args():
-    parser = argparse.ArgumentParser(description="Aerial object detection and tracking")
+    parser = argparse.ArgumentParser(description="Maritime object detection and tracking")
     parser.add_argument("config", type=str, help="Path to config file")
     parser.add_argument("--onnx-path", type=str, required=True, help="Path to ONNX model file")
     input_group = parser.add_mutually_exclusive_group(required=True)
