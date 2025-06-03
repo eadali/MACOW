@@ -65,12 +65,12 @@ To process an image, video, or camera stream, use the following commands:
 
 #### Process a video (CPU)
 ```bash
-python3 demo.py config/yolo8n-bytetrack-cpu.yaml --onnx-path downloads/yolo8n-416.onnx --video downloads/sea.mp4
+python3 demo.py config/yolo8n-bytetrack-cpu.yaml --onnx-path downloads/yolo8n-640.onnx --video downloads/sea.mp4
 ```
 
 #### Process a video (CUDA/GPU)
 ```bash
-python3 demo.py config/yolo8n-bytetrack-cuda.yaml --onnx-path downloads/yolo8n-416.onnx --video downloads/sea.mp4
+python3 demo.py config/yolo8n-bytetrack-cuda.yaml --onnx-path downloads/yolo8n-640.onnx --video downloads/sea.mp4
 ```
 
 ### Command-Line Arguments

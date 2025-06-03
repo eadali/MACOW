@@ -2,7 +2,7 @@
 pipeline: 
   detector:
     model: yolov8n
-    categories: ['LightVehicle', 'Person', 'Building', 'UPole', 'Boat', 'Bike', 'Container', 'Truck', 'Gastank', 'Digger', 'Solarpanels', 'Bus']
+    categories: ['Air Craft Carrier', 'Bulk-Carrier', 'Container Ship', 'Cruise Ship', 'Drilling Ship', 'LNG', 'Naval', 'Offshore Platform', 'Ro-Ro', 'Tanker', 'Tug-Boat', 'Yacht']
     thresholds:
       confidence: 0.6
       iou: 0.4
