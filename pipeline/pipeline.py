@@ -1,7 +1,7 @@
-class System:
+class Pipeline:
     def __init__(self, detector, tracker):
         """
-        Initialize the System class with a detector and tracker.
+        Initialize the Pipeline class with a detector and tracker.
 
         Args:
             detector (object): The object detection model.

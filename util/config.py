@@ -3,13 +3,13 @@ from .yacs import CfgNode
 cfg = CfgNode(new_allowed=True)
 cfg.save_dir = "./"
 
-# System configuration
-cfg.system = CfgNode(new_allowed=True)
-cfg.system.detector = CfgNode(new_allowed=True)
-cfg.system.detector.thresholds = CfgNode(new_allowed=True)
-cfg.system.detector.slicing = CfgNode(new_allowed=True)
+# Pipeline configuration
+cfg.pipeline = CfgNode(new_allowed=True)
+cfg.pipeline.detector = CfgNode(new_allowed=True)
+cfg.pipeline.detector.thresholds = CfgNode(new_allowed=True)
+cfg.pipeline.detector.slicing = CfgNode(new_allowed=True)
 # Tracker configuration
-cfg.system.tracker = CfgNode(new_allowed=True)
+cfg.pipeline.tracker = CfgNode(new_allowed=True)
 
 
 def load_config(cfg, args_cfg):

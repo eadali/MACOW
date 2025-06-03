@@ -2,11 +2,11 @@ import argparse
 import cv2
 import numpy as np
 from tqdm import tqdm
-from system import build_system
+from pipeline import build_pipeline
 from util import cfg, load_config, load_onnx_model
 import supervision as sv
 
-WINDOW_NAME = "Maritime Detections"
+WINDOW_NAME = "Aerial Detections"
 
 
 def get_args():
@@ -58,16 +58,16 @@ def show_frame(window, frame):
 def main():
     args = get_args()
     load_config(cfg, args.config)
-    system = build_system(cfg.system)
-    load_onnx_model(system.detector, args.onnx_path)  
-    category_mapping = system.detector.get_category_mapping()
+    pipeline = build_pipeline(cfg.pipeline)
+    load_onnx_model(pipeline.detector, args.onnx_path)  
+    category_mapping = pipeline.detector.get_category_mapping()
 
     if args.image:
         image = cv2.imread(args.image)
         if image is None:
             print(f"Error: Unable to load image {args.image}")
             return
-        detections = system(image)
+        detections = pipeline(image)
         vis = annotate_frame(image, detections, category_mapping)
         cv2.imshow(WINDOW_NAME, vis)
         cv2.waitKey(0)
@@ -75,7 +75,7 @@ def main():
     else:
         source = args.camid if args.camid is not None else args.video
         for frame in tqdm(frame_generator(source), desc="Processing"):
-            detections = system(frame)
+            detections = pipeline(frame)
             vis = annotate_frame(frame, detections, category_mapping)
             if not show_frame(WINDOW_NAME, vis):
                 break
